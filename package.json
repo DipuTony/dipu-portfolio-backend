@@ -1,0 +1,19 @@
+{
+  "name": "dipu-portfolip-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Dipu Singh",
+  "license": "ISC",
+  "description": "this is backend of dipu-portfolio",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
