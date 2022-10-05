@@ -5,7 +5,10 @@ const userRouter = require("./routes/userRoutes");
 
 const mongoose = require("mongoose") // importing mongoose package for database
 
-app.use("/admin", userRouter); // creating admin route
+app.use(express.json()); //This is convert request body in JSON format
+
+
+app.use("/user", userRouter); // creating admin route
 app.use("/blog", blogRoutes); // creating blog route
 
 app.get("/", (req, res) => {
