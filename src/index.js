@@ -16,7 +16,7 @@ app.use("/user", userRouter); // creating admin route
 app.use("/blog", blogRoutes); // creating blog route
 
 app.get("/", (req, res) => {
-    res.send("Dipu Portfolio Blogs API");
+    res.send("Dipu Portfolio Blogs API..OKK!");
 })
 
 const PORT = process.env.PORT || 5000;
