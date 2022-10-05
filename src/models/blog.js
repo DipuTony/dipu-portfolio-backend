@@ -5,7 +5,7 @@ const BlogSchema = mongoose.Schema({
         type : String,
         require : true
     },
-    blogpost : {
+    description : {
         type : String,
         require : true
     },

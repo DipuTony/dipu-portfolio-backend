@@ -1,7 +1,8 @@
 const userModel = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const SECRATE_KEY = "TJIw9809JJKJkjkj989";
+const dotenv = require("dotenv").config(); //config is a method of dotenv package
+const SECRATE_KEY = process.env.SECRATE_KEY;
 
 const signup = async (req, res) => {
     const { username, email, password } = req.body;
@@ -22,12 +23,12 @@ const signup = async (req, res) => {
 
         //Token generation
         const token = jwt.sign({ email: result.email, id: result._id }, SECRATE_KEY)
-        res.status(201).json({ user: result, token: token })
+        res.status(201).json({ message: "User Created Successfully", token: token,  status:true, code:201});
 
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({message: "somethig went wrong"});
+        res.status(500).json({message: "somethig went wrong", status:false, code:500});
     }
 
 }
@@ -46,11 +47,11 @@ const signin = async(req, res) => {
     const matchPassword = await bcrypt.compare(password, existingUser.password)
 
     if(!matchPassword){
-        return res.status(400).json({message : "Invalid Password"});
+        return res.status(400).json({message : "Invalid Password", status:false, code:400});
     }
 
     const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, SECRATE_KEY)
-    res.status(201).json({ user: existingUser, token: token })
+    res.status(201).json({ message: "User Logged In Successfully", token: token,  status:true, code:201});
     
  } catch (error) {
     console.log(error)
